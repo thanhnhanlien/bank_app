@@ -1,0 +1,25 @@
+<div class="container">   
+  
+<%= form_for @account, url: {action: :update} do |f| %>   
+     
+   <h3>Edit an account</h3>   
+ <%= "<div>#{@account.errors.full_messages.first}</div>".html_safe if @account.errors.any? %>   
+    <p>   
+  
+     <div>   
+            <label>Account Name</label>   
+            <%= f.text_field :name %>   
+     </div>   
+  
+     <div>   
+            <label>Bank</label>   
+            <%= f.text_field :bank %>   
+     </div>   
+  
+      </p>   
+   <div>   
+      <%= link_to 'Back', { controller: 'accounts', action: 'index'} %>   
+      <%= f.submit 'Update Account' %>   
+    </div>   
+<% end %>   
+</div>  

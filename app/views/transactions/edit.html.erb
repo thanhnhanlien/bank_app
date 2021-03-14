@@ -1,0 +1,30 @@
+<div class="container">   
+  
+<%= form_for @transaction, url: {action: :update} do |f| %>   
+     
+   <h3>Modify transaction</h3>   
+ <%= "<div>#{@transaction.errors.full_messages.first}</div>".html_safe if @transaction.errors.any? %>   
+    <p>   
+  
+     <div>   
+            <label>Amount</label>   
+            <%= f.text_field :amount %>   
+     </div>   
+  
+     <div>   
+            <label>Transaction type</label>   
+            <%= f.select(:transaction_type, ['withdraw', 'deposit']) %>
+     </div>   
+  
+  	 <div>   
+            <label>Account</label>   
+             <%= f.select(:account_id, Account.pluck(:name, :id)) %> 
+     </div>  
+
+      </p>   
+   <div>   
+      <%= link_to 'Back', { controller: 'transactions', action: 'index'} %>   
+      <%= f.submit 'Update transaction' %>   
+    </div>   
+<% end %>   
+</div>  

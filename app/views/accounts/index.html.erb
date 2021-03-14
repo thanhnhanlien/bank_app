@@ -1,0 +1,36 @@
+<!DOCTYPE html>   
+<html>   
+<body>   
+ 	<div class="container">   
+    <h3>ACCOUNT LIST</h3>   
+     
+      <div>   
+        <%= link_to 'Add Account', new_account_path %>   
+      </div>   
+      <br>   
+    <table border="2">   
+      <thead>   
+      <tr>   
+        <th>Name</th>   
+        <th>Bank</th>
+        <th>*</th>
+      </tr>   
+      </thead>   
+      <tbody>   
+      <% @accounts.each do |account| %>   
+          <tr>   
+            <td><%= account.name %></td>   
+            <td><%= account.bank %></td>
+           	<td>   
+	            <%= link_to 'Show', account_path(account) %>   
+	            <%= link_to 'Edit', edit_account_path(account) %>   
+	            <%= link_to 'Delete', account_path(account), method: :delete %>
+            </td>   
+          </tr>   
+      <% end %>   
+      </tbody>   
+    </table> 
+    <%= link_to 'Back', { controller: 'pages', action: 'home'} %>  
+    </div>   
+  </body>   
+</html>  

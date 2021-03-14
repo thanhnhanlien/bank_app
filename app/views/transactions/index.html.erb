@@ -1,0 +1,38 @@
+<!DOCTYPE html>   
+<html>   
+<body>   
+ 	<div class="container">   
+    <h3>TRANSACTION HISTORY</h3>   
+     
+      <div>   
+        <%= link_to 'New Transaction', new_transaction_path %>   
+      </div>   
+      <br>   
+    <table border="2">   
+      <thead>   
+      <tr>   
+        <th>User</th>
+        <th>Amount</th>   
+        <th>Transaction Type</th>
+        <th>*</th>
+      </tr>   
+      </thead>   
+      <tbody>   
+      <% @transactions.each do |transaction| %>   
+          <tr>   
+            <td><%= Account.find(transaction.account_id).name %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.transaction_type %></td>   
+           	<td>   
+	            <%= link_to 'Show', transaction_path(transaction) %>   
+	            <%= link_to 'Edit', edit_transaction_path(transaction) %>   
+	            <%= link_to 'Delete', transaction_path(transaction), method: :delete %>
+            </td>   
+          </tr>   
+      <% end %>   
+      </tbody>   
+    </table> 
+    <%= link_to 'Back', { controller: 'pages', action: 'home'} %>  
+    </div>   
+  </body>   
+</html>  

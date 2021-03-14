@@ -1,0 +1,22 @@
+<div class="container">        
+    <h3>Transaction Detail</h3>   
+   
+        <div>   
+          <label>Account:</label>   
+          <%= Account.find(@transaction.account_id).name %>   
+        </div>   
+
+        <div>   
+          <label>Amount:</label>   
+          <%= @transaction.amount %>   
+        </div> 
+
+        <div>   
+          <label>Transaction Type:</label>   
+          <%= @transaction.transaction_type %>   
+        </div>
+     
+  <div>   
+    <%= link_to 'Back', { controller: 'transactions', action: 'index'} %>   
+  </div>   
+</div>  

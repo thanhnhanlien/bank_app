@@ -1,0 +1,17 @@
+<div class="container">        
+    <h3>Account Information</h3>   
+   
+        <div>   
+          <label>Account Name</label>   
+          <%= @account.name %>   
+        </div>   
+
+        <div>   
+          <label>Bank</label>   
+          <%= @account.bank %>   
+        </div>    
+     
+  <div>   
+    <%= link_to 'Back', { controller: 'accounts', action: 'index'} %>   
+  </div>   
+</div>  
