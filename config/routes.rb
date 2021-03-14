@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :accounts, only: [:index, :create, :show, :new, :edit, :update, :destroy]
   resources :transactions, only: [:index, :create, :show, :new, :edit, :update, :destroy]
 
-  # mount Accounts::AccountsAPI => '/api/accounts'  
+  # mount Users::UsersApi => '/api/users'  
 
   devise_for :users
   root 'pages#home'
